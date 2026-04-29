@@ -15,7 +15,7 @@ function Detect() {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://127.0.0.1:8000/detect/video", formData, {
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/detect/video`, formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
       setResult(res.data);
@@ -110,7 +110,7 @@ function Detect() {
             <div style={{ maxWidth: "500px", margin: "auto" }}>
               <video key={result.output_video} controls width="100%">
                 <source
-                  src={`http://127.0.0.1:8000/outputs/${result.output_video}`}
+                  src={`${process.env.REACT_APP_API_URL}/outputs/${result.output_video}`}
                   type="video/mp4"
                 />
               </video>

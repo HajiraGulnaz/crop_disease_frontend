@@ -21,7 +21,7 @@ function DiseaseInfo() {
 
       const responses = await Promise.all(
         diseaseList.map((d) =>
-          axios.post("http://127.0.0.1:8000/disease-info/", { disease: d })
+          axios.post(`${process.env.REACT_APP_API_URL}/disease-info/`, { disease: d })
         )
       );
 
